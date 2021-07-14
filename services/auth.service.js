@@ -26,14 +26,15 @@ const registration = async (input, res) => {
 };
 
 const login = async (input, res) => {
+
   // Input Validation
   const { error } = await loginValidation(input);
-  if (error) return res.status(400).send({ msg: error.details[0].message });
+  if (error) return res.status(401).send({ msg: error.details[0].message });
 
   // Email Exists Validation
   const user = await findByEmail(input.loginEmail);
   if (!user) return res.status(400).send({ msg: "Email doesn't exists" });
-  
+
 
   // Check Password
   const isValid = bcrypt.compare(input.loginPassword, user.candidatePassword);

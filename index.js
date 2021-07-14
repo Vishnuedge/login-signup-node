@@ -9,7 +9,7 @@ const mongo = require("./shared/mongo");
 
 // Routes
 const authRoute = require("./routes/auth.route");
-const profileRoute = require("./routes/profile.route");
+// const profileRoute = require("./routes/profile.route");
 
 
 // Service
